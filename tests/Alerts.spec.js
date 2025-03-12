@@ -14,6 +14,8 @@ test.skip('Alerts', async({page})=>{
 
 await page.click("//button[normalize-space()='Simple Alert']")
 await page.waitForTimeout(5000)
+
+//djjdhghghh hhhfdjfj
 }
 
 )
