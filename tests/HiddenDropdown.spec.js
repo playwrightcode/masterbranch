@@ -12,13 +12,13 @@ await page.locator("[type ='submit']").click();
 
  await page.locator("//span[normalize-space()='PIM']").click();
  
- //a[@class='oxd-main-menu-item active']
+ //a[@class='oxd-main-menu-item active']  it is also fine
 await page.waitForTimeout(5000);
 
 //click on dropdown, 
 await page.locator("//div[6]//div[1]//div[2]//div[1]//div[1]//div[2]//i[1]").click();
 
-await page.waitForTimeout(5000);
+await page.waitForTimeout(4000);
 
  const options =  await page.$$("//div[@role='listbox']//span")
 
