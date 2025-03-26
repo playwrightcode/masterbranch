@@ -19,8 +19,6 @@ test ('Manage Users', async({page})=>{
    await expect(await page.locator('//span[@class="oxd-topbar-header-breadcrumb"]')).toContainText('Dashboard')
    console.log('your redirected to :', dasbordtext, 'Page')
 
-    await page.waitForTimeout(3000)
-    //Click on Admin menu from the left side navigation
     await page.locator('//span[text()="Admin"]').click();
 
     //Click on "User Management" from the top menus
@@ -56,7 +54,42 @@ test ('Manage Users', async({page})=>{
     }
 
     
+   // await page.waitForTimeout(3000)
+
+
+    // await page.locator('(//div[@class="oxd-select-text--after"]//i)[1]').click()
+
+    await page.getByText('-- Select --').first().click();
+    await page.getByRole('option', { name: 'Admin' }).click();
+    await page.locator('div').filter({ hasText: /^-- Select --$/ }).nth(2).click();
+    await page.getByRole('option', { name: 'Enabled' }).click();
+    await page.locator('//input[@placeholder="Type for hints..."]').fill('Kanaga')
     await page.waitForTimeout(3000)
+
+    //await page.getByRole('textbox', { name: 'Type for hints...' }).fill('bala');
+    await page.getByText('Vedha').click();
+    await page.locator('(//input[contains(@class,"oxd-input oxd-input--active")])[2]').fill('TesterABC');
+    await page.locator('(//input[@type="password"])[1]').fill('Test@123');
+    await page.locator('(//input[@type="password"])[2]').fill('Test@123');
+   // await page.locator('//button[@type="submit"]').click();
+    await page.waitForTimeout(5000);
+
+    await page.locator('//i[contains(@class,"oxd-icon bi-caret-down-fill")]').click();
+    await page.locator('//a[normalize-space(text())="Logout"]').click();
+    await page.waitForTimeout(5000);
+
+    await page.locator('//input[@placeholder="Username"]').fill('TesterABC');
+    await page.locator('//input[@placeholder="Password"]').fill('Test@123');
+    await page.waitForTimeout(5000);
+    await page.click('button[type="submit"]');
+
+   
+
+    //Verify whether you are logged as a created user
+  // const loggedinUser =  await page.locator('//p[normalize-space(text())="Vedha Crm"]').textContent()
+  // console.log('You are logged in as a : ', loggedinUser)
+   //await expect(await page.locator('//p[normalize-space(text())="Vedha Crm"]')).toHaveText('Kanaga New')
+    
 
     
 
