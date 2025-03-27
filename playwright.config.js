@@ -25,6 +25,9 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
+  timeout: 90000, // Set global timeout for each test to 90 seconds
+
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
@@ -45,7 +48,11 @@ export default defineConfig({
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
-
+    //{
+      //name: 'test-project',
+      //testDir: './tests',
+      //timeout: 90000,  // Set timeout per test for this project
+    //},
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
