@@ -13,6 +13,7 @@ test('test', async ({ page }) => {
   await page.waitForTimeout(3000)
 
   //Home
+    
   const home=new Homepage(page)
   await home.addProductToCart("Nexus 6")
   await page.waitForTimeout(3000)
